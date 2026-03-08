@@ -19,6 +19,7 @@ text-align:center;
 color:white;
 font-size:55px;
 margin-top:40px;
+text-shadow:0 0 10px rgba(255,255,255,0.7);
 }
 
 .flower{
@@ -82,6 +83,7 @@ opacity:0;
 white-space:nowrap;
 animation:fly 8s linear infinite;
 z-index:1;
+text-shadow:0 0 10px white;
 }
 
 @keyframes fly{
@@ -122,6 +124,37 @@ opacity:0;
 }
 }
 
+/* BLING BLING ✨ */
+
+.sparkle{
+position:absolute;
+color:white;
+font-size:18px;
+pointer-events:none;
+animation:sparkleMove 4s linear infinite;
+text-shadow:
+0 0 5px white,
+0 0 10px white,
+0 0 20px #ffd1dc,
+0 0 30px #ffd1dc;
+}
+
+@keyframes sparkleMove{
+0%{
+transform:translateY(100vh) scale(0.5);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-100px) scale(1.2);
+opacity:0;
+}
+}
+
 </style>
 </head>
 
@@ -150,6 +183,8 @@ const wishes=[
 "Cảm ơn em vì luôn tuyệt vời ✨"
 ];
 
+/* tạo lời chúc */
+
 function createWish(){
 
 let text=document.createElement("div");
@@ -168,6 +203,8 @@ setTimeout(()=>{text.remove()},9000)
 
 setInterval(createWish,2000)
 
+/* tim bay */
+
 function createHeart(){
 
 let heart=document.createElement("div");
@@ -184,6 +221,29 @@ setTimeout(()=>{heart.remove()},8000)
 }
 
 setInterval(createHeart,800)
+
+/* sparkle bling bling ✨ */
+
+function createSparkle(){
+
+let sparkle=document.createElement("div");
+sparkle.className="sparkle";
+
+const icons=["✨","⭐","🌟"];
+sparkle.innerHTML=icons[Math.floor(Math.random()*icons.length)];
+
+sparkle.style.left=Math.random()*window.innerWidth+"px";
+sparkle.style.animationDuration=3+Math.random()*3+"s";
+
+document.body.appendChild(sparkle);
+
+setTimeout(()=>{
+sparkle.remove()
+},6000)
+
+}
+
+setInterval(createSparkle,300)
 
 </script>
 
