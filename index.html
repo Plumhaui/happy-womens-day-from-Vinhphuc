@@ -2,6 +2,8 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>8/3</title>
 
 <style>
@@ -103,7 +105,7 @@ opacity:0;
 }
 }
 
-/* tim bay */
+/* tim */
 
 .heart{
 position:absolute;
@@ -124,7 +126,7 @@ opacity:0;
 }
 }
 
-/* BLING BLING ✨ */
+/* sparkle */
 
 .sparkle{
 position:absolute;
@@ -144,15 +146,47 @@ text-shadow:
 transform:translateY(100vh) scale(0.5);
 opacity:0;
 }
-
 20%{
 opacity:1;
 }
-
 100%{
 transform:translateY(-100px) scale(1.2);
 opacity:0;
 }
+}
+
+/* MOBILE */
+
+@media (max-width:600px){
+
+h1{
+font-size:32px;
+margin-top:20px;
+}
+
+.flower{
+width:260px;
+height:260px;
+top:55%;
+}
+
+.img{
+width:70px;
+height:70px;
+border:3px solid white;
+}
+
+.p1{left:95px;top:0}
+.p2{left:190px;top:70px}
+.p3{left:190px;top:170px}
+.p4{left:95px;top:210px}
+.p5{left:0px;top:170px}
+.p6{left:0px;top:70px}
+
+.wish{
+font-size:16px;
+}
+
 }
 
 </style>
@@ -180,10 +214,11 @@ const wishes=[
 "Chúc em luôn xinh đẹp và rạng rỡ 🌸",
 "Mong em luôn hạnh phúc mỗi ngày 💕",
 "Chúc em luôn gặp nhiều may mắn 🍀",
-"Cảm ơn em vì luôn tuyệt vời ✨"
+"Chúc em luôn mỉm cười thật tươi 😊",
+"Chúc em luôn được yêu thương 💗",
+"Hy vọng mỗi ngày của em đều ngọt ngào 🍬",
+"Mong mọi điều tốt đẹp đến với em ✨"
 ];
-
-/* tạo lời chúc */
 
 function createWish(){
 
@@ -203,8 +238,6 @@ setTimeout(()=>{text.remove()},9000)
 
 setInterval(createWish,2000)
 
-/* tim bay */
-
 function createHeart(){
 
 let heart=document.createElement("div");
@@ -222,8 +255,6 @@ setTimeout(()=>{heart.remove()},8000)
 
 setInterval(createHeart,800)
 
-/* sparkle bling bling ✨ */
-
 function createSparkle(){
 
 let sparkle=document.createElement("div");
@@ -237,9 +268,7 @@ sparkle.style.animationDuration=3+Math.random()*3+"s";
 
 document.body.appendChild(sparkle);
 
-setTimeout(()=>{
-sparkle.remove()
-},6000)
+setTimeout(()=>{sparkle.remove()},6000)
 
 }
 
