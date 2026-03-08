@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>8/3</title>
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+overflow:hidden;
+background:linear-gradient(135deg,#f7b2b2,#f6c1d0);
+font-family:sans-serif;
+}
+
+h1{
+text-align:center;
+color:white;
+font-size:55px;
+margin-top:40px;
+}
+
+.flower{
+position:absolute;
+top:60%;
+left:50%;
+transform:translate(-50%,-50%);
+width:420px;
+height:420px;
+z-index:5;
+}
+
+.img{
+position:absolute;
+width:100px;
+height:100px;
+border-radius:50%;
+border:5px solid white;
+overflow:hidden;
+box-shadow:0 6px 20px rgba(0,0,0,0.2);
+opacity:0;
+transform:scale(0);
+animation:bloom 1s forwards, float 3s ease-in-out infinite;
+}
+
+.img img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+@keyframes bloom{
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
+}
+
+/* vị trí 6 cánh */
+
+.p1{left:160px;top:0;animation-delay:0.2s,1s}
+.p2{left:320px;top:120px;animation-delay:0.4s,1.2s}
+.p3{left:320px;top:280px;animation-delay:0.6s,1.4s}
+.p4{left:160px;top:340px;animation-delay:0.8s,1.6s}
+.p5{left:0px;top:280px;animation-delay:1s,1.8s}
+.p6{left:0px;top:120px;animation-delay:1.2s,2s}
+
+/* lời chúc */
+
+.wish{
+position:absolute;
+color:white;
+font-size:20px;
+font-weight:bold;
+opacity:0;
+white-space:nowrap;
+animation:fly 8s linear infinite;
+z-index:1;
+}
+
+@keyframes fly{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+80%{
+opacity:1;
+}
+100%{
+transform:translateY(-100px);
+opacity:0;
+}
+}
+
+/* tim bay */
+
+.heart{
+position:absolute;
+color:#ff5c8a;
+font-size:25px;
+animation:heartfly 6s linear infinite;
+}
+
+@keyframes heartfly{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+20%{opacity:1}
+100%{
+transform:translateY(-100px);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>🌸 Chúc Mừng Ngày 8/3 🌸</h1>
+
+<div class="flower">
+
+<div class="img p1"><img src="img1.jpg"></div>
+<div class="img p2"><img src="img2.jpg"></div>
+<div class="img p3"><img src="img3.jpg"></div>
+<div class="img p4"><img src="img4.jpg"></div>
+<div class="img p5"><img src="img5.jpg"></div>
+<div class="img p6"><img src="img6.jpg"></div>
+
+</div>
+
+<script>
+
+const wishes=[
+"Chúc em ngày 8/3 thật nhiều niềm vui 💖",
+"Chúc em luôn xinh đẹp và rạng rỡ 🌸",
+"Mong em luôn hạnh phúc mỗi ngày 💕",
+"Chúc em luôn gặp nhiều may mắn 🍀",
+"Cảm ơn em vì luôn tuyệt vời ✨"
+];
+
+function createWish(){
+
+let text=document.createElement("div");
+text.className="wish";
+
+text.innerText=wishes[Math.floor(Math.random()*wishes.length)];
+
+text.style.left=Math.random()*window.innerWidth+"px";
+text.style.animationDuration=6+Math.random()*4+"s";
+
+document.body.appendChild(text);
+
+setTimeout(()=>{text.remove()},9000)
+
+}
+
+setInterval(createWish,2000)
+
+function createHeart(){
+
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤";
+
+heart.style.left=Math.random()*window.innerWidth+"px";
+heart.style.animationDuration=5+Math.random()*3+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{heart.remove()},8000)
+
+}
+
+setInterval(createHeart,800)
+
+</script>
+
+</body>
+</html>
